@@ -1,0 +1,722 @@
+/* CSS Variables for a consistent design system */
+:root {
+    --primary-color: #1a1a1a; /* Dark almost black for backgrounds and text */
+    --secondary-color: #d4af37; /* Gold/Amber for accents */
+    --accent-color: #f8f4e6; /* Off-white for subtle backgrounds */
+    --text-dark: #2c2c2c; /* Slightly lighter dark for body text */
+    --text-light: #ffffff; /* White for text on dark backgrounds */
+    --shadow-light: 0 4px 20px rgba(0,0,0,0.1);
+    --shadow-medium: 0 8px 30px rgba(0,0,0,0.15);
+    --shadow-heavy: 0 20px 60px rgba(0,0,0,0.3);
+    --gradient-primary: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
+    --gradient-gold: linear-gradient(135deg, #d4af37 0%, #f4d03f 100%);
+    --gradient-overlay: linear-gradient(135deg, rgba(26,26,26,0.8) 0%, rgba(44,44,44,0.9) 100%);
+}
+
+/* Universal box-sizing for consistent layouts */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Smooth scrolling behavior for anchor links */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Body basic styling */
+body {
+    font-family: 'Inter', sans-serif; /* Primary font for body text */
+    line-height: 1.7; /* Improved readability */
+    color: var(--text-dark);
+    background: #fafafa; /* Light background */
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* --- Loading Animation --- */
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--primary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000; /* Ensure it's on top */
+    transition: opacity 0.5s ease;
+}
+
+.loader-content {
+    text-align: center;
+    color: var(--secondary-color);
+}
+
+.loader h2 {
+    font-family: 'Playfair Display', serif; /* Heading font */
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    animation: pulse 2s infinite; /* Subtle pulsating animation */
+}
+
+.loader-bar {
+    width: 200px;
+    height: 4px;
+    background: rgba(212, 175, 55, 0.3); /* Translucent gold background for progress bar */
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.loader-progress {
+    width: 0%;
+    height: 100%;
+    background: var(--gradient-gold); /* Gold gradient for progress fill */
+    border-radius: 2px;
+    animation: loading 3s ease-in-out; /* Loading animation */
+}
+
+@keyframes loading {
+    0% { width: 0%; }
+    100% { width: 100%; }
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+/* --- Enhanced Navigation Bar --- */
+.navbar {
+    background: rgba(26, 26, 26, 0.95); /* Semi-transparent dark background */
+    backdrop-filter: blur(20px); /* Blur effect for modern look */
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    transition: all 0.3s ease; /* Smooth transition for scroll effect */
+    box-shadow: var(--shadow-light); /* Subtle shadow */
+    -webkit-box-shadow: var(--shadow-light); /* For Safari compatibility */
+}
+
+.navbar.scrolled {
+    background: rgba(26, 26, 26, 0.98); /* More opaque when scrolled */
+    box-shadow: var(--shadow-medium); /* Deeper shadow when scrolled */
+    -webkit-box-shadow: var(--shadow-medium);
+}
+
+.navbar-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--secondary-color) !important; /* Gold brand name */
+    padding: 20px 15px; /* Ample padding */
+    transition: all 0.3s ease;
+    display: flex; /* Align icon and text */
+    align-items: center;
+    gap: 10px; /* Space between icon and text */
+}
+
+.navbar-brand i {
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+}
+
+.navbar-brand:hover {
+    color: #f4d03f !important; /* Lighter gold on hover */
+    transform: scale(1.05); /* Slight scale up on hover */
+}
+
+.navbar-toggle {
+    border: 2px solid var(--secondary-color);
+    margin: 15px 15px 15px 0;
+    padding: 8px 12px;
+    transition: all 0.3s ease;
+    border-radius: 5px; /* Rounded corners for toggle button */
+}
+
+.navbar-toggle:hover {
+    background: var(--secondary-color);
+    transform: scale(1.1);
+}
+
+.navbar-toggle .icon-bar {
+    background-color: var(--secondary-color);
+    height: 3px;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.navbar-toggle:hover .icon-bar {
+    background-color: var(--primary-color);
+}
+
+.navbar-collapse {
+    background: var(--primary-color); /* Dark background for mobile dropdown */
+    border: none;
+    box-shadow: var(--shadow-medium);
+    -webkit-box-shadow: var(--shadow-medium);
+}
+
+.navbar-nav > li > a {
+    color: var(--text-light) !important;
+    font-size: 1.1rem;
+    font-weight: 500;
+    padding: 20px 25px !important;
+    position: relative;
+    transition: all 0.3s ease;
+    display: flex; /* Align icon and text */
+    align-items: center;
+    gap: 10px;
+}
+
+.navbar-nav > li > a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background: var(--gradient-gold);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.navbar-nav > li > a:hover {
+    background: transparent !important;
+    color: var(--secondary-color) !important;
+}
+
+.navbar-nav > li > a:hover::before {
+    width: 80%; /* Underline effect on hover */
+}
+
+/* --- Hero Section --- */
+.hero-section {
+    height: 100vh; /* Full viewport height */
+    background: linear-gradient(135deg, rgba(26,26,26,0.7) 0%, rgba(44,44,44,0.8) 100%), 
+                url('https://plus.unsplash.com/premium_photo-1661883237884-263e8de8869b?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cmVzdGF1cmFudHxlbnwwfHwwfHx8MA%3D%3D'); /* Restaurant background image */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Parallax effect */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    text-align: center;
+    color: var(--text-light);
+    z-index: 2;
+    animation: fadeInUp 1s ease-out 0.5s both; /* Fade-in animation for content */
+}
+
+.hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 8vw, 6rem); /* Responsive font size */
+    font-weight: 900;
+    margin-bottom: 30px;
+    background: var(--gradient-gold);
+    -webkit-background-clip: text; /* Clip background to text for gradient text effect */
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 4px 20px rgba(212, 175, 55, 0.3); /* Subtle text shadow */
+}
+
+.hero-subtitle {
+    font-size: clamp(1.2rem, 3vw, 1.8rem); /* Responsive font size */
+    font-weight: 300;
+    margin-bottom: 40px;
+    opacity: 0.9;
+    letter-spacing: 2px; /* Increased letter spacing */
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--secondary-color);
+    animation: bounce 2s infinite; /* Bouncing animation */
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.scroll-indicator:hover {
+    color: #f4d03f;
+    transform: translateX(-50%) scale(1.2);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    40% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+    60% {
+        transform: translateX(-50%) translateY(-5px);
+    }
+}
+
+/* --- Menu Section Layout --- */
+.menu-container {
+    padding: 100px 0; /* Ample vertical padding */
+    background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%); /* Subtle gradient background */
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: var(--gradient-gold);
+    border-radius: 2px;
+}
+
+.section-subtitle {
+    font-size: 1.2rem;
+    color: #666;
+    font-weight: 300;
+}
+
+/* --- Enhanced Menu Cards --- */
+.menu-section {
+    background: var(--text-light);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow-light);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Spring-like transition */
+    position: relative;
+    margin-bottom: 30px;
+    min-height: 700px; /* Ensure consistent height */
+    border: 1px solid rgba(212, 175, 55, 0.1); /* Subtle gold border */
+    -webkit-box-shadow: var(--shadow-light);
+}
+
+.menu-section:hover {
+    transform: translateY(-10px); /* Lift effect on hover */
+    box-shadow: var(--shadow-heavy);
+    -webkit-box-shadow: var(--shadow-heavy);
+}
+
+.menu-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: var(--gradient-gold);
+    transform: scaleX(0); /* Hidden by default */
+    transition: transform 0.4s ease;
+    transform-origin: left; /* Expand from left */
+}
+
+.menu-section:hover::before {
+    transform: scaleX(1); /* Expand on hover */
+}
+
+.menu-header {
+    position: relative;
+    padding: 40px 30px 30px;
+    background: linear-gradient(135deg, rgba(26,26,26,0.05) 0%, rgba(44,44,44,0.1) 100%); /* Subtle dark gradient for header */
+    text-align: center; /* Center icons */
+}
+
+.menu-title {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 15px 30px;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text-light);
+    border-bottom-left-radius: 15px; /* Rounded corner for title tab */
+    min-width: 140px;
+    text-align: center;
+    box-shadow: var(--shadow-medium);
+    transition: all 0.3s ease;
+    -webkit-box-shadow: var(--shadow-medium);
+}
+
+/* Specific gradient backgrounds for each menu title */
+.chicken-section .menu-title {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%); /* Reddish-orange */
+}
+
+.beef-section .menu-title {
+    background: linear-gradient(135deg, #a55eea 0%, #8b2635 100%); /* Purple-red */
+}
+
+.sushi-section .menu-title {
+    background: linear-gradient(135deg, #26d0ce 0%, #1a9a96 100%); /* Teal-green */
+}
+
+.menu-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+
+/* Section specific background and icon colors */
+.chicken-section {
+    background: linear-gradient(135deg, rgba(255,107,107,0.05) 0%, rgba(255,107,107,0.1) 100%);
+}
+.chicken-section .menu-icon {
+    color: #ff6b6b;
+}
+
+.beef-section {
+    background: linear-gradient(135deg, rgba(165,94,234,0.05) 0%, rgba(165,94,234,0.1) 100%);
+}
+.beef-section .menu-icon {
+    color: #a55eea;
+}
+
+.sushi-section {
+    background: linear-gradient(135deg, rgba(38,208,206,0.05) 0%, rgba(38,208,206,0.1) 100%);
+}
+.sushi-section .menu-icon {
+    color: #26d0ce;
+}
+
+.menu-content {
+    padding: 0 30px 30px;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--text-dark);
+}
+
+/* Styling for menu category images */
+.menu-category-image {
+    width: 100%;
+    height: 200px; /* Fixed height for consistency */
+    object-fit: cover; /* Cover the area, cropping if necessary */
+    border-radius: 10px; /* Slightly rounded corners */
+    margin-bottom: 20px;
+    box-shadow: var(--shadow-light);
+}
+
+.menu-content h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+.menu-content h4 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin: 25px 0 15px;
+    color: var(--primary-color);
+    display: flex; /* Align icon with text */
+    align-items: center;
+    gap: 8px;
+}
+
+.menu-content h4 i {
+    font-size: 1.1em;
+    color: var(--secondary-color); /* Icons for subheadings */
+}
+
+.menu-item {
+    margin-bottom: 15px;
+    padding: 15px;
+    background: rgba(255,255,255,0.5); /* Semi-transparent white background */
+    border-radius: 10px;
+    border-left: 4px solid transparent; /* Highlight border */
+    transition: all 0.3s ease;
+}
+
+/* Hover effects for menu items based on section color */
+.chicken-section .menu-item:hover {
+    border-left-color: #ff6b6b;
+    background: rgba(255,107,107,0.1);
+}
+
+.beef-section .menu-item:hover {
+    border-left-color: #a55eea;
+    background: rgba(165,94,234,0.1);
+}
+
+.sushi-section .menu-item:hover {
+    border-left-color: #26d0ce;
+    background: rgba(38,208,206,0.1);
+}
+
+/* Style for the "Show Price" button */
+.show-price-btn {
+    background: var(--secondary-color);
+    color: var(--primary-color);
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-weight: 600;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-light);
+}
+
+.show-price-btn:hover {
+    background: #f4d03f;
+    color: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-medium);
+}
+
+/* Style for the price description div */
+.price-description {
+    margin-top: 15px;
+    padding: 10px;
+    background: var(--accent-color);
+    border-radius: 8px;
+    font-size: 0.95rem;
+    color: var(--text-dark);
+    display: none; /* Hidden by default */
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.price-description.show {
+    display: block; /* Show when 'show' class is added */
+    opacity: 1;
+}
+
+/* Back to Top button styling */
+.back-to-top {
+    position: absolute;
+    bottom: 25px;
+    right: 25px;
+    background: var(--gradient-gold);
+    color: var(--primary-color);
+    padding: 12px 20px;
+    text-decoration: none;
+    border-radius: 25px; /* Pill shape */
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: var(--shadow-light);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    -webkit-box-shadow: var(--shadow-light);
+}
+
+.back-to-top:hover {
+    transform: translateY(-3px); /* Lift effect */
+    box-shadow: var(--shadow-medium);
+    color: var(--primary-color); /* Ensure text color remains dark */
+    text-decoration: none;
+    -webkit-box-shadow: var(--shadow-medium);
+}
+
+/* --- Enhanced Footer --- */
+.footer {
+    background: var(--gradient-primary); /* Dark gradient background */
+    color: var(--text-light);
+    padding: 60px 0 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gradient-gold); /* Top border gradient */
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-section h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: var(--secondary-color);
+}
+
+.footer-section p {
+    opacity: 0.8;
+    line-height: 1.6;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+    justify-content: flex-start; /* Align left */
+}
+
+.footer-section:last-child .social-links {
+     justify-content: center; /* Center for the last section if it's alone on mobile */
+}
+
+.social-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    background: rgba(212, 175, 55, 0.1);
+    color: var(--secondary-color);
+    border-radius: 50%;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.social-links a:hover {
+    background: var(--secondary-color);
+    color: var(--primary-color);
+    transform: translateY(-3px);
+    border-color: var(--secondary-color);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 30px;
+    border-top: 1px solid rgba(212, 175, 55, 0.2);
+    opacity: 0.7;
+}
+
+/* --- Responsive Design Adjustments --- */
+/* Desktop (>= 992px) - Three columns */
+@media (min-width: 992px) {
+    .col-lg-4:nth-child(3n+1) {
+        clear: both; /* Ensures new row starts for every 3rd item (not strictly needed with flex/grid but good for float-based) */
+    }
+}
+
+/* Tablet (768px - 991px) - Two columns, then one */
+@media (min-width: 768px) and (max-width: 991px) {
+    .col-md-6:nth-child(2n+1) {
+        clear: both; /* Ensures new row starts for every 2nd item */
+    }
+    .col-md-12 {
+        clear: both; /* Forces the third item (Sushi) to a new line on tablets */
+    }
+}
+
+/* Mobile (< 768px) - Single column */
+@media (max-width: 767px) {
+    .hero-section {
+        height: 80vh; /* Shorter hero section on mobile */
+    }
+    
+    .hero-title {
+        font-size: 3rem;
+    }
+    
+    .menu-container {
+        padding: 60px 0;
+    }
+    
+    .section-header {
+        margin-bottom: 50px;
+    }
+    
+    .menu-content {
+        padding: 0 20px 20px;
+    }
+    
+    .navbar-collapse {
+        background: rgba(26, 26, 26, 0.98);
+        backdrop-filter: blur(20px);
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr; /* Stack footer sections vertically */
+        text-align: center;
+    }
+    .social-links {
+        justify-content: center; /* Center social links on mobile */
+    }
+    .menu-title {
+        min-width: 120px; /* Adjust min-width for smaller screens */
+        font-size: 1.2rem;
+        padding: 10px 20px;
+    }
+    .menu-section {
+        min-height: 600px; /* Slightly reduce min-height for mobile */
+    }
+    .menu-category-image {
+        height: 150px; /* Adjust image height for smaller screens */
+    }
+}
+
+/* --- Additional Global Enhancements --- */
+/* Scroll Progress Bar at the top */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%; /* Controls the fill percentage */
+    height: 4px;
+    background: var(--gradient-gold);
+    z-index: 1000;
+    transition: width 0.3s ease;
+}
+
+/* Fade-in animations for content as user scrolls */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Ensure Bootstrap's fixed-top navbar doesn't cover content */
+body {
+    padding-top: 70px; /* Adjust based on navbar height */
+}
+@media (max-width: 767px) {
+    body {
+        padding-top: 50px; /* Adjust for smaller navbar height on mobile */
+    }
+}

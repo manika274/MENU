@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food, LLC - Culinary Excellence</title>
+    <!-- Bootstrap CSS CDN -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome CDN for icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts: Playfair Display for headings, Inter for body text -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Loading Screen: Displays a "Food, LLC" branding with a loading bar until the page is fully loaded. -->
+    <div class="loader" id="loader">
+        <div class="loader-content">
+            <h2>Food, LLC</h2>
+            <div class="loader-bar">
+                <div class="loader-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scroll Progress Bar: Visually indicates scroll progress at the top of the viewport. -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Enhanced Navigation: A fixed-top Bootstrap navbar with brand, mobile toggle, and smooth scroll links. -->
+    <nav class="navbar navbar-default navbar-fixed-top" id="navbar">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <!-- Mobile Navbar Toggle Button (visible only on extra small screens) -->
+                <button type="button" class="navbar-toggle collapsed visible-xs" data-toggle="collapse" data-target="#navigationCollapse" aria-expanded="false" aria-controls="navigationCollapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- Brand Name with Icon -->
+                <a class="navbar-brand" href="#top">
+                    <i class="fas fa-utensils"></i> Food, LLC
+                </a>
+            </div>
+            
+            <!-- Mobile Collapsible Navigation Menu (visible only on extra small screens) -->
+            <div class="collapse navbar-collapse visible-xs" id="navigationCollapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="#chicken-section" data-toggle="collapse" data-target="#navigationCollapse"><i class="fas fa-drumstick-bite"></i> Chicken</a></li>
+                    <li><a href="#beef-section" data-toggle="collapse" data-target="#navigationCollapse"><i class="fas fa-hamburger"></i> Beef</a></li>
+                    <li><a href="#sushi-section" data-toggle="collapse" data-target="#navigationCollapse"><i class="fas fa-fish"></i> Sushi</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section: Full-height introductory section with main title and scroll indicator. -->
+    <section id="top" class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title">Our Menu</h1>
+            <p class="hero-subtitle">Culinary Excellence Since 1995</p>
+        </div>
+        <!-- Scroll indicator to prompt users to scroll down -->
+        <div class="scroll-indicator" onclick="document.getElementById('menu').scrollIntoView()">
+            <i class="fas fa-chevron-down fa-2x"></i>
+        </div>
+    </section>
+
+    <!-- Menu Container Section: Holds the three main menu categories. -->
+    <section id="menu" class="menu-container">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title">Signature Collections</h2>
+                <p class="section-subtitle">Discover our carefully curated menu featuring the finest ingredients and expert preparation</p>
+            </div>
+            
+            <div class="row">
+                <!-- Chicken Section Card -->
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div id="chicken-section" class="menu-section chicken-section fade-in">
+                        <div class="menu-header">
+                            <div class="menu-title">Chicken</div>
+                            <div class="menu-icon">
+                                <i class="fas fa-drumstick-bite"></i>
+                            </div>
+                        </div>
+                        <div class="menu-content">
+                            <http!-- Image for Chicken Section -->
+                            <img src="https://vaya.in/recipes/wp-content/uploads/2018/05/Fried-Chicken.jpg" alt="Delicious Chicken Dish" class="menu-category-image">
+                            
+                            <h3>Premium Poultry Selection</h3>
+                            
+                            <div class="menu-item">
+                                <h4><i class="fas fa-star"></i> Signature Dishes</h4>
+                                <p><strong>Truffle Herb Roasted Chicken</strong> - Free-range chicken infused with black truffle, fresh herbs, and garlic confit, served with roasted fingerling potatoes and seasonal vegetables.</p>
+                                <button class="btn btn-default show-price-btn" data-target="chicken-price-desc-1">Show Price</button>
+                                <div id="chicken-price-desc-1" class="price-description">
+                                    <p>Price: $32.00</p>
+                                    <p>Description: A luxurious and aromatic chicken dish perfect for a sophisticated palate.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="menu-item">
+                                <p><strong>Miso Glazed Chicken Thighs</strong> - Tender thighs marinated in white miso, mirin, and sake, grilled to perfection and garnished with sesame seeds and scallions.</p>
+                                <button class="btn btn-default show-price-btn" data-target="chicken-price-desc-2">Show Price</button>
+                                <div id="chicken-price-desc-2" class="price-description">
+                                    <p>Price: $28.00</p>
+                                    <p>Description: Sweet and savory, these thighs are grilled to a succulent finish.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="menu-item">
+                                <p><strong>Nashville Hot Chicken</strong> - Crispy fried chicken breast with our signature spice blend, served on brioche with pickles and coleslaw.</p>
+                                <button class="btn btn-default show-price-btn" data-target="chicken-price-desc-3">Show Price</button>
+                                <div id="chicken-price-desc-3" class="price-description">
+                                    <p>Price: $26.00</p>
+                                    <p>Description: A fiery and crispy classic with a cool, refreshing side.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="menu-item">
+                                <p><strong>Coq au Vin Moderne</strong> - Classic French preparation with premium Burgundy wine, pearl onions, mushrooms, and fresh thyme.</p>
+                                <button class="btn btn-default show-price-btn" data-target="chicken-price-desc-4">Show Price</button>
+                                <div id="chicken-price-desc-4" class="price-description">
+                                    <p>Price: $30.00</p>
+                                    <p>Description: A rich and hearty French stew, re-imagined for modern tastes.</p>
+                                </div>
+                            </div>
+                            
+                            <p>Our poultry is sourced from sustainable local farms, ensuring the highest quality and ethical standards. Each dish showcases the natural flavors enhanced by our chef's innovative techniques.</p>
+                        </div>
+                        <a href="#top" class="back-to-top">
+                            <i class="fas fa-arrow-up"></i> Back to Top
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Beef Section Card -->
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div id="beef-section" class="menu-section beef-section fade-in">
+                        <div class="menu-header">
+                            <div class="menu-title">Beef</div>
+                            <div class="menu-icon">
+                                <i class="fas fa-hamburger"></i>
+                            </div>
+                        </div>
+                        <div class="menu-content">
+                            <!-- Image for Beef Section -->
+                            <img src="https://takrecipe.com/wp-content/uploads/2022/10/beef-steak-recipe.webp" alt="Juicy Beef Steak" class="menu-category-image">
+
+                            <h3>Premium Beef Collection</h3>
+                            
+                            <div class="menu-item">
+                                <h4><i class="fas fa-crown"></i> Steakhouse Classics</h4>
+                                <p><strong>Wagyu Ribeye</strong> - A5 grade Japanese Wagyu, perfectly seared and finished with herb butter, accompanied by truffle mac and cheese.</p>
+                                <button class="btn btn-default show-price-btn" data-target="beef-price-desc-1">Show Price</button>
+                                <div id="beef-price-desc-1" class="price-description">
+                                    <p>Price: $95.00</p>
+                                    <p>Description: The ultimate steak experience, rich in flavor and incredibly tender.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="menu-item">
+                                <p><strong>Dry-Aged Porterhouse</strong> - 28-day aged premium cut, grilled over hardwood charcoal, served with roasted bone marrow and chimichurri.</p>
+                                <button class="btn btn-default show-price-btn" data-target="beef-price-desc-2">Show Price</button>
+                                <div id="beef-price-desc-2" class="price-description">
+                                    <p>Price: $70.00</p>
+                                    <p>Description: A robust and flavorful steak with a unique aged character.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="menu-item">
+                                <p><strong>Korean BBQ Short Ribs</strong> - Galbi-style marinated ribs with soy, pear, and sesame, grilled and served with kimchi and steamed rice.</p>
+                                <button class="btn btn-default show-price-btn" data-target="beef-price-desc-3">Show Price</button>
+                                <div id="beef-price-desc-3" class="price-description">
+                                    <p>Price: $38.00</p>
+                                    <p>Description: Sweet, savory, and incredibly tender short ribs with a spicy kick.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="menu-item">
+                                <p><strong>Beef Wellington Royale</strong> - Prime tenderloin wrapped in mushroom duxelles and puff pastry, served with red wine jus and roasted vegetables.</p>
+                                <button class="btn btn-default show-price-btn" data-target="beef-price-desc-4">Show Price</button>
+                                <div id="beef-price-desc-4" class="price-description">
+                                    <p>Price: $55.00</p>
+                                    <p>Description: An exquisite classic, perfectly cooked tenderloin in a golden pastry.</p>
+                                </div>
+                            </div>
+                            
+                            <p>Our beef program features only the finest cuts from premium suppliers, dry-aged in-house for optimal tenderness and flavor development. Each steak is prepared to your exact specifications by our experienced grill masters.</p>
+                        </div>
+                        <a href="#top" class="back-to-top">
+                            <i class="fas fa-arrow-up"></i> Back to Top
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Sushi Section Card -->
+                <div class="col-lg-4 col-md-12 col-sm-12">
+                    <div id="sushi-section" class="menu-section sushi-section fade-in">
+                        <div class="menu-header">
+                            <div class="menu-title">Sushi</div>
+                            <div class="menu-icon">
+                                <i class="fas fa-fish"></i>
+                            </div>
+                        </div>
+                        <div class="menu-content">
+                            <!-- Image for Sushi Section -->
+                            <img src="https://www.justonecookbook.com/wp-content/uploads/2023/05/Vegetarian-Sushi-Rolls-9707-I-1.jpg" alt="Fresh Sushi Assortment" class="menu-category-image">
+
+                            <h3>Authentic Sushi Experience</h3>
+                            
+                            <div class="menu-item">
+                                <h4><i class="fas fa-gem"></i> Omakase Selection</h4>
+                                <p><strong>Chef's Tasting</strong> - 12-piece seasonal selection featuring the finest daily catches, prepared by our master sushi chef.</p>
+                                <button class="btn btn-default show-price-btn" data-target="sushi-price-desc-1">Show Price</button>
+                                <div id="sushi-price-desc-1" class="price-description">
+                                    <p>Price: $120.00</p>
+                                    <p>Description: A curated journey through seasonal seafood, prepared fresh daily.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="menu-item">
+                                <h4><i class="fas fa-fire"></i> Signature Rolls</h4>
+                                <p><strong>Black Dragon Roll</strong> - Tempura shrimp and cucumber topped with BBQ eel, avocado, and our signature eel sauce, finished with black sesame.</p>
+                                <button class="btn btn-default show-price-btn" data-target="sushi-price-desc-2">Show Price</button>
+                                <div id="sushi-price-desc-2" class="price-description">
+                                    <p>Price: $22.00</p>
+                                    <p>Description: A rich and flavorful roll with a satisfying crunch and savory eel.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="menu-item">
+                                <p><strong>Volcano Roll</strong> - Spicy tuna and cucumber topped with seared salmon, spicy mayo, and sriracha, torched tableside.</p>
+                                <button class="btn btn-default show-price-btn" data-target="sushi-price-desc-3">Show Price</button>
+                                <div id="sushi-price-desc-3" class="price-description">
+                                    <p>Price: $20.00</p>
+                                    <p>Description: A vibrant and spicy roll, seared to perfection for a unique texture.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="menu-item">
+                                <p><strong>Rainbow Deluxe</strong> - California roll topped with seven varieties of sashimi-grade fish and avocado, creating a stunning rainbow presentation.</p>
+                                <button class="btn btn-default show-price-btn" data-target="sushi-price-desc-4">Show Price</button>
+                                <div id="sushi-price-desc-4" class="price-description">
+                                    <p>Price: $18.00</p>
+                                    <p>Description: A colorful and diverse roll featuring a medley of fresh fish.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="menu-item">
+                                <h4><i class="fas fa-leaf"></i> Sashimi & Nigiri</h4>
+                                <p>Daily selection of premium fish including otoro, kohada, uni, ikura, and seasonal specialties, served over perfectly seasoned sushi rice.</p>
+                                <button class="btn btn-default show-price-btn" data-target="sushi-price-desc-5">Show Price</button>
+                                <div id="sushi-price-desc-5" class="price-description">
+                                    <p>Price: Market Price</p>
+                                    <p>Description: Experience the pure essence of fresh fish in delicate slices.</p>
+                                </div>
+                            </div>
+                            
+                            <p>Our sushi program features fish flown in daily from Tsukiji Fish Market and local sustainable sources. Our master chef trained in Tokyo and brings authentic techniques to every piece.</p>
+                        </div>
+                        <a href="#top" class="back-to-top">
+                            <i class="fas fa-arrow-up"></i> Back to Top
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Footer: Professional footer with contact info, hours, and social links. -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Food, LLC</h4>
+                    <p>Elevating culinary experiences through passion, innovation, and the finest ingredients. Join us for an unforgettable dining journey.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="TripAdvisor"><i class="fab fa-tripadvisor"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Culinary Boulevard<br>Food District, NY 10001</p>
+                    <p><i class="fas fa-phone"></i> (555) 123-FOOD</p>
+                    <p><i class="fas fa-envelope"></i> reservations@foodllc.com</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Hours</h4>
+                    <p><strong>Monday - Thursday:</strong> 5:00 PM - 10:00 PM</p>
+                    <p><strong>Friday - Saturday:</strong> 5:00 PM - 11:00 PM</p>
+                    <p><strong>Sunday:</strong> 4:00 PM - 9:00 PM</p>
+                    <p><em>Reservations recommended</em></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Food, LLC. All rights reserved. | Crafting exceptional dining experiences since 1995</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
